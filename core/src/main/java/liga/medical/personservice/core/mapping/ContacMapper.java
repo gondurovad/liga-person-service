@@ -14,6 +14,7 @@ public interface ContacMapper {
 
     @Select("select * from contact")
     @Result(property = "profileLink", column = "profile_link")
+    @Result(property = "phoneNumber", column = "phone_number")
     List<Contact> getAllContacts();
 
     @Select("select * from contact where id in (select contact_id from person_data where id = #{personId})")
