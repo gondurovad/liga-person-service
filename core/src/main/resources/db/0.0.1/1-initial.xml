@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="Daria" id="1">
+        <comment>
+            Create initial db schema
+        </comment>
+        <createTable tableName="contact" schemaName="medical">
+            <column name="id" type="bigserial">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="phone_number" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(128)"/>
+            <column name="profile_link" type="varchar(128)"/>
+        </createTable>
+        <createTable tableName="medical_card" schemaName="medical">
+            <column name="id" type="bigserial">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="client_status" type="char(1)"/>
+            <column name="med_status" type="char(1)"/>
+            <column name="registry_dt" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment" type="text"/>
+        </createTable>
+        <createTable tableName="person_data" schemaName="medical">
+            <column name="id" type="bigserial">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="last_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="birth_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="age" type="smallint"/>
+            <column name="sex" type="char(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="contact_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="medical_card_id" type="bigint">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="parent_id" type="bigint">
+                <constraints checkConstraint="CHECK (parent_id &gt;&lt; id)"/>
+            </column>
+        </createTable>
+        <createTable tableName="illness" schemaName="medical">
+            <column name="id" type="bigserial">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="medical_card_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type_id" type="bigint"/>
+            <column name="heaviness" type="char(1)"/>
+            <column name="appearance_dttm" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recovery_dt" type="date"/>
+        </createTable>
+        <createTable tableName="address" schemaName="medical">
+            <column name="id" type="bigserial">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="contact_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="index" type="int"/>
+            <column name="street" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="building" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="flat" type="varchar(32)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

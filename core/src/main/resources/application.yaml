@@ -4,13 +4,13 @@ server:
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/liga?currentSchema=medical
-    username: postgres
-    password: dargo
-    driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 10
-    initialization-mode: always
-    continue-on-error: true
-    schema: classpath:init/schema.sql
-    data: classpath:init/data.sql
-
+      jdbc-url: jdbc:postgresql://localhost:5432/liga?currentSchema=medical
+      username: postgres
+      password: dargo
+  liquibase:
+    change-log: classpath:/db/changelog.xml
+    enabled: ${LIQUIBASE_ENABLE:false}
+  configuration:
+    map-underscore-to-camel-case: true
