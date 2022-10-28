@@ -25,7 +25,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userService.findByUsername(username);
-        if (user == null) throw new UsernameNotFoundException(String.format("Username %s doesn't exists.",username));
+        if (user == null) throw new UsernameNotFoundException(String.format("Username %s doesn't exists.", username));
 
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         for (Role role: user.getRoles()) {

@@ -44,21 +44,21 @@ public class User implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return status.equals("ACTIVE");
+        return "ACTIVE".equals(status);
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return status.equals("ACTIVE");
+        return "ACTIVE".equals(status);
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return status.equals("ACTIVE");
+        return "ACTIVE".equals(status);
     }
 
     @Override
     public boolean isEnabled() {
-        return status.equals("ACTIVE");
+        return "ACTIVE".equals(status);
     }
 }

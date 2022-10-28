@@ -1,6 +1,5 @@
 package liga.medical.personservice.core.mapping;
 
-import liga.medical.personservice.core.model.Illness;
 import liga.medical.personservice.core.model.Role;
 import liga.medical.personservice.core.model.User;
 import org.apache.ibatis.annotations.Insert;
