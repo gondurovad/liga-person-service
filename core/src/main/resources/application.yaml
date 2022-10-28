@@ -12,5 +12,7 @@ spring:
   liquibase:
     change-log: classpath:/db/changelog.xml
     enabled: ${LIQUIBASE_ENABLE:false}
+
+mybatis:
   configuration:
     map-underscore-to-camel-case: true

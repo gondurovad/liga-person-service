@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/personservice")
+@RequestMapping("/personservice/medcard")
 public class MedicalCardController {
 
     private final MedicalCardService medicalCardService;
@@ -18,7 +18,7 @@ public class MedicalCardController {
         this.medicalCardService = medicalCardService;
     }
 
-    @GetMapping(path = "/medcards", produces = "application/json")
+    @GetMapping(path = "/all", produces = "application/json")
     public List<MedicalCard> getAllMedCards() {
         return medicalCardService.getAllMedCards();
     }

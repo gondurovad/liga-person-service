@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("personservice")
+@RequestMapping("/personservice/person")
 public class PersonController {
 
     private final PersonService personService;
@@ -18,7 +18,7 @@ public class PersonController {
         this.personService = personService;
     }
 
-    @GetMapping(path = "/persons", produces = "application/json")
+    @GetMapping(path = "/all", produces = "application/json")
     public List<PersonData> getAllPersons() {
         return personService.getAllPersons();
     }

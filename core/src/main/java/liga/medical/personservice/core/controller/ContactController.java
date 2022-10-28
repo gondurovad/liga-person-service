@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 @RestController
-@RequestMapping("personservice")
+@RequestMapping("/personservice/contact")
 public class ContactController {
 
     private final ContactService contactService;
@@ -23,17 +23,17 @@ public class ContactController {
         this.contactService = contactService;
     }
 
-    @GetMapping(path = "/contacts", produces = "application/json")
+    @GetMapping(path = "/all", produces = "application/json")
     public List<Contact> getAllContacts() {
         return contactService.getAllContacts();
     }
 
-    @GetMapping(path = "/contactbyperson/{personId}", produces = "application/json")
+    @GetMapping(path = "/byperson/{personId}", produces = "application/json")
     public Contact getContactByPersonId(@PathVariable(value = "personId") long personId) {
         return contactService.getContactByPersonId(personId);
     }
 
-    @PatchMapping(path = "/contact/update")
+    @PatchMapping(path = "/update")
     public ResponseEntity<String> updateContact(@RequestBody Contact contact) {
         if (contact.getPhoneNumber().isEmpty())
             return new ResponseEntity<>("Incorrect data was sent. Check that the phone number are entered correctly.", HttpStatus.BAD_REQUEST);

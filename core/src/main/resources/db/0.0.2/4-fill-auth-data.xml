@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="Daria" id="4">
+        <comment>
+            Fill authentication data
+        </comment>
+        <insert tableName="users" schemaName="medical">
+            <column name="id" value="1"/>
+            <column name="username" value="admin"/>
+            <column name="password" value="$2a$12$uUfVfgm/xu4JZKao77xf2e7pW2.2dRfh3bd7M7HzvdpbjR8YcMVyO"/>
+            <column name="status" value="ACTIVE"/>
+        </insert>
+        <insert tableName="users" schemaName="medical">
+            <column name="id" value="2"/>
+            <column name="username" value="user"/>
+            <column name="password" value="$2a$12$ni5lkLtPXennEwrQ2L9YvuxzXAbTuILRnSJyk9rk1CPjZpFGUG27i"/>
+            <column name="status" value="ACTIVE"/>
+        </insert>
+        <insert tableName="users" schemaName="medical">
+            <column name="id" value="3"/>
+            <column name="username" value="user2"/>
+            <column name="password" value="$2a$12$eCMvYcHjFDuXuwBov4r3/u2VhycgI1DiHq8LZHvP/wPoEbI2X0ykq"/>
+            <column name="status" value="BANNED"/>
+        </insert>
+        <insert tableName="role" schemaName="medical">
+            <column name="id" value="1"/>
+            <column name="name" value="ADMIN"/>
+        </insert>
+        <insert tableName="role" schemaName="medical">
+            <column name="id" value="2"/>
+            <column name="name" value="USER"/>
+        </insert>
+        <insert tableName="user_role" schemaName="medical">
+            <column name="user_id" value="1"/>
+            <column name="role_id" value="1"/>
+        </insert>
+        <insert tableName="user_role" schemaName="medical">
+            <column name="user_id" value="1"/>
+            <column name="role_id" value="2"/>
+        </insert>
+        <insert tableName="user_role" schemaName="medical">
+            <column name="user_id" value="2"/>
+            <column name="role_id" value="2"/>
+        </insert>
+        <insert tableName="user_role" schemaName="medical">
+            <column name="user_id" value="3"/>
+            <column name="role_id" value="2"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

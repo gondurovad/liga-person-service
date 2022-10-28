@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 @RestController
-@RequestMapping("/personservice")
+@RequestMapping("/personservice/illness")
 public class IllnessController {
 
     private final IllnessService illnessService;
@@ -22,12 +22,12 @@ public class IllnessController {
         this.illnessService = illnessService;
     }
 
-    @GetMapping(path = "/illnesses", produces = "application/json")
+    @GetMapping(path = "/all", produces = "application/json")
     public List<Illness> getAllIllnesses() {
         return illnessService.getAllIllnesses();
     }
 
-    @PostMapping(path = "/illness/create")
+    @PostMapping(path = "/create")
     public ResponseEntity<String> createIllness(@RequestBody Illness illness) {
         if (illnessService.createIllness(illness) == 0)
             return new ResponseEntity<>("Illness was created.", HttpStatus.OK);
