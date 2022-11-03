@@ -7,14 +7,14 @@
 <body>
 <h1>Sign up:</h1>
 <!--<form action="#" th:action="@{/auth/register}" th:object="${user}" method="post">-->
-<form action="/auth/register" th:object="${user}" method="post">
+<form action="/register" th:object="${user}" method="post">
     <p>Username: <input type="text" th:field="*{username}" required/></p>
     <p>Password: <input type="text" th:field="*{password}" required/></p>
     <label for="isAdmin">I'm an administrator:</label>
     <input id="isAdmin" type="checkbox" name="isAdmin" th:checked="${isAdmin}" disabled="true"/>
     <!--<p>I'm an administrator: <input type="checkbox" th:field="*{isAdmin}" required></p>-->
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-    <p><a href="/auth/login">Sign in</a></p>
+    <p><a href="/login">Sign in</a></p>
 </form>
 </body>
 </html>

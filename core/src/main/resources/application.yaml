@@ -16,3 +16,7 @@ spring:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+
+logging:
+  file:
+    name: person-service.log

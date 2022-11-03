@@ -6,4 +6,5 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
     <includeAll path="db/0.0.1"/>
     <includeAll path="db/0.0.2"/>
+    <includeAll path="db/0.0.3"/>
 </databaseChangeLog>

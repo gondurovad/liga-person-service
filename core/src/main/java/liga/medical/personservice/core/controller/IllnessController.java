@@ -1,5 +1,7 @@
 package liga.medical.personservice.core.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import liga.medical.personservice.core.model.Illness;
 import liga.medical.personservice.core.service.IllnessService;
 import org.springframework.http.HttpStatus;
@@ -14,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/personservice/illness")
+@Api(value = "API для работы с заболеваниями")
 public class IllnessController {
 
     private final IllnessService illnessService;
@@ -23,11 +26,13 @@ public class IllnessController {
     }
 
     @GetMapping(path = "/all", produces = "application/json")
+    @ApiOperation(value = "Получение всех заболеваний")
     public List<Illness> getAllIllnesses() {
         return illnessService.getAllIllnesses();
     }
 
     @PostMapping(path = "/create")
+    @ApiOperation(value = "Регистрация нового заболевания")
     public ResponseEntity<String> createIllness(@RequestBody Illness illness) {
         if (illnessService.createIllness(illness) == 0)
             return new ResponseEntity<>("Illness was created.", HttpStatus.OK);
