@@ -2,11 +2,7 @@ package liga.medical.personservice.core.mapping;
 
 import liga.medical.personservice.core.model.Illness;
 import liga.medical.personservice.core.model.MedicalCard;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -27,4 +23,10 @@ public interface IllnessMapper {
 
     @Select("select * from medical_card where id = #{medId}")
     MedicalCard findCardById(@Param("medId") long medId);
+
+    @Insert("insert into illness (medical_card_id, type_id, heaviness, " +
+            "appearance_dttm, recovery_dt) values (#{medicalCardId}, #{typeId}, " +
+            "#{heaviness}, #{appearanceDttm}, #{recoveryDt})")
+    @Options(useGeneratedKeys=true, keyProperty = "id")
+    void insertIllness(Illness illness);
 }

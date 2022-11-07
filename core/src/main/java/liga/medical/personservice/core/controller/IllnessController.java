@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 @RestController
@@ -35,6 +37,19 @@ public class IllnessController {
     @ApiOperation(value = "Регистрация нового заболевания")
     public ResponseEntity<String> createIllness(@RequestBody Illness illness) {
         if (illnessService.createIllness(illness) == 0)
+            return new ResponseEntity<>("Illness was created.", HttpStatus.OK);
+        else return new ResponseEntity<>("The medical card associated with the disease was not found.", HttpStatus.BAD_REQUEST);
+    }
+
+    @GetMapping(path = "/insert")
+    public ResponseEntity<String> createIllness() {
+        Illness illness = new Illness();
+        illness.setHeaviness("H");
+        illness.setAppearanceDttm(new Timestamp(System.currentTimeMillis()));
+        illness.setMedicalCardId(2);
+        illness.setRecoveryDt(new Date(System.currentTimeMillis()));
+        illness.setTypeId(1);
+        if (illnessService.insertIllness(illness) == 0)
             return new ResponseEntity<>("Illness was created.", HttpStatus.OK);
         else return new ResponseEntity<>("The medical card associated with the disease was not found.", HttpStatus.BAD_REQUEST);
     }

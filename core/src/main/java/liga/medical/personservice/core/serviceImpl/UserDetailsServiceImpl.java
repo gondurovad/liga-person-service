@@ -27,11 +27,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         User user = userService.findByUsername(username);
         if (user == null) throw new UsernameNotFoundException(String.format("Username %s doesn't exists.", username));
 
-        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
+        /*Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         for (Role role: user.getRoles()) {
             grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
         }
 
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), grantedAuthorities);
+        */
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.getAuthorities());
     }
 }

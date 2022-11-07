@@ -31,4 +31,14 @@ public class IllnessServiceImpl implements IllnessService {
             return 0;
         }
     }
+
+    @Override
+    public int insertIllness(Illness illness) {
+        MedicalCard card = illnessMapper.findCardById(illness.getMedicalCardId());
+        if (card == null) return 1;
+        else {
+            illnessMapper.insertIllness(illness);
+            return 0;
+        }
+    }
 }

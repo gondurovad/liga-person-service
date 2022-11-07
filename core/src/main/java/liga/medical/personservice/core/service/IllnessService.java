@@ -9,4 +9,6 @@ public interface IllnessService {
     List<Illness> getAllIllnesses();
 
     int createIllness(Illness illness);
+
+    int insertIllness(Illness illness);
 }

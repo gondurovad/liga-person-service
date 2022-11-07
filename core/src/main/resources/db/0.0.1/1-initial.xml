@@ -57,6 +57,7 @@
             </column>
         </createTable>
         <createTable tableName="illness" schemaName="medical">
+<!--            <column name="id" type="bigserial" autoIncrement="true">-->
             <column name="id" type="bigserial">
                 <constraints nullable="false" primaryKey="true" unique="true"/>
             </column>
