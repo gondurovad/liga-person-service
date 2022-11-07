@@ -20,3 +20,9 @@ mybatis:
 logging:
   file:
     name: person-service.log
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
