@@ -26,6 +26,8 @@ import java.util.Date;
 @Slf4j
 public class LoggingAdvice {
 
+    //private final long SYSTEM_TYPE_ID = 3;
+
     //private final LoggingService loggingService; //from common
 
     private final ObjectMapper objectMapper;
