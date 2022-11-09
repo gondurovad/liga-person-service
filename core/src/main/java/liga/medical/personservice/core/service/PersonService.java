@@ -7,4 +7,6 @@ import java.util.List;
 public interface PersonService {
 
     List<PersonData> getAllPersons();
+
+    PersonData getById(Long id);
 }

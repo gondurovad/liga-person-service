@@ -20,4 +20,15 @@ public class AddressServiceImpl implements AddressService {
     public List<Address> getAllAddresses() {
         return addressMapper.getAllAddresses();
     }
+
+    @Override
+    public Address getById(Long id) {
+        return addressMapper.getById(id);
+    }
+
+    @Override
+    public void updateAddress(Address address) {
+        addressMapper.updateAddress(address);
+    }
+
 }

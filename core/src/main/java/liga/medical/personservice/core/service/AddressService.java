@@ -7,4 +7,9 @@ import java.util.List;
 public interface AddressService {
 
     List<Address> getAllAddresses();
+
+    Address getById(Long id);
+
+    void updateAddress(Address address);
+
 }

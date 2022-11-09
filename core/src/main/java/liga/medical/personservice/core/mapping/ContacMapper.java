@@ -2,7 +2,6 @@ package liga.medical.personservice.core.mapping;
 
 import liga.medical.personservice.core.model.Contact;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.annotations.Param;
@@ -13,8 +12,6 @@ import java.util.List;
 public interface ContacMapper {
 
     @Select("select * from contact")
-    @Result(property = "profileLink", column = "profile_link")
-    @Result(property = "phoneNumber", column = "phone_number")
     List<Contact> getAllContacts();
 
     @Select("select * from contact where id in (select contact_id from person_data where id = #{personId})")

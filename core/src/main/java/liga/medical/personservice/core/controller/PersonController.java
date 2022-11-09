@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import liga.medical.personservice.core.model.PersonData;
 import liga.medical.personservice.core.service.PersonService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,5 +26,11 @@ public class PersonController {
     @ApiOperation(value = "Получение всех клиентов")
     public List<PersonData> getAllPersons() {
         return personService.getAllPersons();
+    }
+
+    @GetMapping(path = "/{id}", produces = "application/json")
+    @ApiOperation(value = "Получение клиента по id")
+    public PersonData getPerson(@PathVariable Long id) {
+        return personService.getById(id);
     }
 }

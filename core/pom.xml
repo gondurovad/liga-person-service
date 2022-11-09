@@ -14,6 +14,10 @@
     <packaging>jar</packaging>
     <artifactId>person-service-core</artifactId>
 
+    <properties>
+        <spring.boot.amqp>2.7.4</spring.boot.amqp>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -53,6 +57,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+            <version>${spring.boot.amqp}</version>
         </dependency>
 
         <dependency>

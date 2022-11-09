@@ -20,4 +20,9 @@ public class PersonServiceImpl implements PersonService {
     public List<PersonData> getAllPersons() {
         return personMapper.getAllPersons();
     }
+
+    @Override
+    public PersonData getById(Long id) {
+        return personMapper.getById(id);
+    }
 }

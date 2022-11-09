@@ -27,6 +27,7 @@ public class IllnessServiceImpl implements IllnessService {
         MedicalCard card = illnessMapper.findCardById(illness.getMedicalCardId());
         if (card == null) return 1;
         else {
+            illness.setId(illnessMapper.count() + 1);
             illnessMapper.createIllness(illness);
             return 0;
         }

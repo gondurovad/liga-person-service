@@ -7,4 +7,5 @@
     <includeAll path="db/0.0.1"/>
     <includeAll path="db/0.0.2"/>
     <includeAll path="db/0.0.3"/>
+    <includeAll path="db/0.0.4"/>
 </databaseChangeLog>
